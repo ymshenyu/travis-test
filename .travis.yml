@@ -17,14 +17,6 @@ before_install:
   - docker pull ubuntu:focal
 
 script:
-  - docker run -it ubuntu:focal "lsb_release -a"
-  - docker run -it ubuntu:focal "snap install snapcraft --classic"
-  - docker run -it ubuntu:focal "snapcraft version"
-
-deploy:
-  provider: snap
-  snap: qv2ray_*.snap
-  channel: edge
-  skip_cleanup: true
-  on:
-    branch: dev
+  - docker run -it ubuntu:focal lsb_release -a
+  - docker run -it ubuntu:focal snap install snapcraft --classic
+  - docker run -it ubuntu:focal snapcraft version
