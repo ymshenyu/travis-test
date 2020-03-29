@@ -1,0 +1,29 @@
+language: shell
+os: linux
+dist: bionic
+
+git:
+  depth: false
+
+env:
+  global:
+    - LC_ALL: C.UTF-8
+    - LANG: C.UTF-8
+
+services:
+  - docker
+
+before_install:
+  - docker pull ubuntu:focal
+  - docker run -it ubuntu:focal bash
+
+script:
+  - lsb_release -a
+
+deploy:
+  provider: snap
+  snap: qv2ray_*.snap
+  channel: edge
+  skip_cleanup: true
+  on:
+    branch: dev
