@@ -17,6 +17,6 @@ before_install:
   - docker pull ubuntu:focal
 
 script:
-  - docker run -it ubuntu:focal lsb_release -a
+  - docker run -it ubuntu:focal apt-get install snapd
   - docker run -it ubuntu:focal snap install snapcraft --classic
   - docker run -it ubuntu:focal snapcraft version
