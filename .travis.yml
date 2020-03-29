@@ -15,10 +15,11 @@ services:
 
 before_install:
   - docker pull ubuntu:focal
-  - docker run -it ubuntu:focal bash
 
 script:
-  - lsb_release -a
+  - docker run -it ubuntu:focal "lsb_release -a"
+  - docker run -it ubuntu:focal "snap install snapcraft --classic"
+  - docker run -it ubuntu:focal "snapcraft version"
 
 deploy:
   provider: snap
