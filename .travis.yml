@@ -1,6 +1,6 @@
 language: shell
 os: linux
-dist: bionic
+dist: trusty
 
 git:
   depth: false
@@ -10,13 +10,7 @@ env:
     - LC_ALL: C.UTF-8
     - LANG: C.UTF-8
 
-services:
-  - docker
-
-before_install:
-  - docker pull ubuntu:focal
-
 script:
-  - docker run -it ubuntu:focal apt-get install snapd
-  - docker run -it ubuntu:focal snap install snapcraft --classic
-  - docker run -it ubuntu:focal snapcraft version
+  - wget https://github.com/ymshenyu/travis-test/releases/download/0.0.1/Qv2ray.AppImage
+  - chmod +x Qv2ray.AppImage
+  - ./Qv2ray.AppImage
